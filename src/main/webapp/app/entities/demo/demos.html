@@ -1,0 +1,114 @@
+<div>
+    <h2 data-translate="demoApp.demo.home.title">Demos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="demo.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="demoApp.demo.home.createLabel">
+                        Create new Demo
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'demoApp.demo.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span data-translate="demoApp.demo.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="edad"><span data-translate="demoApp.demo.edad">Edad</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numeroCredencial"><span data-translate="demoApp.demo.numeroCredencial">Numero Credencial</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sueldo"><span data-translate="demoApp.demo.sueldo">Sueldo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impuesto"><span data-translate="demoApp.demo.impuesto">Impuesto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impuestoDetalle"><span data-translate="demoApp.demo.impuestoDetalle">Impuesto Detalle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="activo"><span data-translate="demoApp.demo.activo">Activo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechaLocalDate"><span data-translate="demoApp.demo.fechaLocalDate">Fecha Local Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechaZoneDateTime"><span data-translate="demoApp.demo.fechaZoneDateTime">Fecha Zone Date Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagen"><span data-translate="demoApp.demo.imagen">Imagen</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagenAnyBlob"><span data-translate="demoApp.demo.imagenAnyBlob">Imagen Any Blob</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagenBlob"><span data-translate="demoApp.demo.imagenBlob">Imagen Blob</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="desc"><span data-translate="demoApp.demo.desc">Desc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="instante"><span data-translate="demoApp.demo.instante">Instante</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="demo in vm.demos track by demo.id">
+                    <td><a ui-sref="demo-detail({id:demo.id})">{{demo.id}}</a></td>
+                    <td>{{demo.nombre}}</td>
+                    <td>{{demo.edad}}</td>
+                    <td>{{demo.numeroCredencial}}</td>
+                    <td>{{demo.sueldo}}</td>
+                    <td>{{demo.impuesto}}</td>
+                    <td>{{demo.impuestoDetalle}}</td>
+                    <td>{{demo.activo}}</td>
+                        <td>{{demo.fechaLocalDate | date:'mediumDate'}}</td>
+                    <td>{{demo.fechaZoneDateTime | date:'medium'}}</td>
+                    <td>
+                        <a ng-if="demo.imagen" ng-click="vm.openFile(demo.imagenContentType, demo.imagen)" data-translate="entity.action.open">open</a>
+                        <span ng-if="demo.imagen">{{demo.imagenContentType}}, {{vm.byteSize(demo.imagen)}}</span>
+                    </td>
+                    <td>
+                        <a ng-if="demo.imagenAnyBlob" ng-click="vm.openFile(demo.imagenAnyBlobContentType, demo.imagenAnyBlob)" data-translate="entity.action.open">open</a>
+                        <span ng-if="demo.imagenAnyBlob">{{demo.imagenAnyBlobContentType}}, {{vm.byteSize(demo.imagenAnyBlob)}}</span>
+                    </td>
+                    <td>
+                        <a ng-if="demo.imagenBlob" ng-click="vm.openFile(demo.imagenBlobContentType, demo.imagenBlob)">
+                            <img data-ng-src="{{'data:' + demo.imagenBlobContentType + ';base64,' + demo.imagenBlob}}" style="max-height: 30px;" alt="demo image"/>
+                        </a>
+                        <span ng-if="demo.imagenBlob">{{demo.imagenBlobContentType}}, {{vm.byteSize(demo.imagenBlob)}}</span>
+                    </td>
+                    <td>{{demo.desc}}</td>
+                    <td>{{demo.instante | date:'medium'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="demo-detail({id:demo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="demo.edit({id:demo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="demo.delete({id:demo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

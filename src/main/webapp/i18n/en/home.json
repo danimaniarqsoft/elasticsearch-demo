@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "Welcome, ElasticSearch Test!",
+        "subtitle": "This is your homepage",
+        "logged": {
+            "message": "You are logged in as user \"{{username}}\"."
+        },
+        "question": "If you have any question on  ElasticSearch Test:",
+        "link": {
+            "homepage": " ElasticSearch Test homepage",
+            "stackoverflow": " ElasticSearch Test on Stack Overflow",
+            "bugtracker": " ElasticSearch Test bug tracker",
+            "chat": " ElasticSearch Test public chat room",
+            "follow": "follow @java_ ElasticSearch Test on Twitter"
+        },
+        "like": "If you like  ElasticSearch Test, don't forget to give us a star on",
+        "github": "GitHub"
+    }
+}

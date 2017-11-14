@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span data-translate="demoApp.demo.detail.title">Demo</span> {{vm.demo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="demoApp.demo.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.demo.nombre}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.edad">Edad</span></dt>
+        <dd>
+            <span>{{vm.demo.edad}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.numeroCredencial">Numero Credencial</span></dt>
+        <dd>
+            <span>{{vm.demo.numeroCredencial}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.sueldo">Sueldo</span></dt>
+        <dd>
+            <span>{{vm.demo.sueldo}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.impuesto">Impuesto</span></dt>
+        <dd>
+            <span>{{vm.demo.impuesto}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.impuestoDetalle">Impuesto Detalle</span></dt>
+        <dd>
+            <span>{{vm.demo.impuestoDetalle}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.activo">Activo</span></dt>
+        <dd>
+            <span>{{vm.demo.activo}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.fechaLocalDate">Fecha Local Date</span></dt>
+        <dd>
+            <span>{{vm.demo.fechaLocalDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.fechaZoneDateTime">Fecha Zone Date Time</span></dt>
+        <dd>
+            <span>{{vm.demo.fechaZoneDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.imagen">Imagen</span></dt>
+        <dd>
+            <div ng-if="vm.demo.imagen">
+                <a ng-click="vm.openFile(vm.demo.imagenContentType, vm.demo.imagen)" data-translate="entity.action.open">open</a>
+                {{vm.demo.imagenContentType}}, {{vm.byteSize(vm.demo.imagen)}}
+            </div>
+        </dd>
+        <dt><span data-translate="demoApp.demo.imagenAnyBlob">Imagen Any Blob</span></dt>
+        <dd>
+            <div ng-if="vm.demo.imagenAnyBlob">
+                <a ng-click="vm.openFile(vm.demo.imagenAnyBlobContentType, vm.demo.imagenAnyBlob)" data-translate="entity.action.open">open</a>
+                {{vm.demo.imagenAnyBlobContentType}}, {{vm.byteSize(vm.demo.imagenAnyBlob)}}
+            </div>
+        </dd>
+        <dt><span data-translate="demoApp.demo.imagenBlob">Imagen Blob</span></dt>
+        <dd>
+            <div ng-if="vm.demo.imagenBlob">
+                <a ng-click="vm.openFile(vm.demo.imagenBlobContentType, vm.demo.imagenBlob)">
+                    <img data-ng-src="{{'data:' + vm.demo.imagenBlobContentType + ';base64,' + vm.demo.imagenBlob}}" style="max-width: 100%;" alt="demo image"/>
+                </a>
+                {{vm.demo.imagenBlobContentType}}, {{vm.byteSize(vm.demo.imagenBlob)}}
+            </div>
+        </dd>
+        <dt><span data-translate="demoApp.demo.desc">Desc</span></dt>
+        <dd>
+            <span>{{vm.demo.desc}}</span>
+        </dd>
+        <dt><span data-translate="demoApp.demo.instante">Instante</span></dt>
+        <dd>
+            <span>{{vm.demo.instante | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="demo-detail.edit({id:vm.demo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

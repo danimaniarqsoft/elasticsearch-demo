@@ -1,0 +1,35 @@
+{
+    "demoApp": {
+        "demo" : {
+            "home": {
+                "title": "Demos",
+                "createLabel": "Crear nuevo Demo",
+                "createOrEditLabel": "Crear o editar Demo",
+                "search": "Search for Demo"
+            },
+            "created": "Un nuevo Demo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Demo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Demo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Demo {{ id }}?"
+            },
+            "detail": {
+                "title": "Demo"
+            },
+            "nombre": "Nombre",
+            "edad": "Edad",
+            "numeroCredencial": "Numero Credencial",
+            "sueldo": "Sueldo",
+            "impuesto": "Impuesto",
+            "impuestoDetalle": "Impuesto Detalle",
+            "activo": "Activo",
+            "fechaLocalDate": "Fecha Local Date",
+            "fechaZoneDateTime": "Fecha Zone Date Time",
+            "imagen": "Imagen",
+            "imagenAnyBlob": "Imagen Any Blob",
+            "imagenBlob": "Imagen Blob",
+            "desc": "Desc",
+            "instante": "Instante"
+        }
+    }
+}

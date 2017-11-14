@@ -1,0 +1,8 @@
+
+  ${AnsiColor.GREEN} _  ___  _ _  ___  _ _   _  __ __  __  _ ${AnsiColor.RED}  _____ ___  __ _____  
+  ${AnsiColor.GREEN}| |/ / || | |/ / || | | | |/ //  \|  \| |${AnsiColor.RED}_|_   _| __/' _/_   _| 
+  ${AnsiColor.GREEN}|   <| \/ |   <| \/ | |_|   <| /\ | | ' |${AnsiColor.RED}__|| | | _|`._`. | |   
+  ${AnsiColor.GREEN}|_|\_\\__/|_|\_\\__/|___|_|\_\_||_|_|\__|${AnsiColor.RED}   |_| |___|___/ |_|   
+
+${AnsiColor.BRIGHT_BLUE}:: Kukulkan 🤓  :: Running Spring Boot ${spring-boot.version} ::
+:: https://github.com/dads-software-brotherhood/kukulkan-craftsman ::${AnsiColor.DEFAULT}
